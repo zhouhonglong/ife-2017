@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>自定义网页右键菜单</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+	<style type="text/css">
+		html,body{
+			margin:0;
+			padding:0;
+			height:100%;
+			height:100%;
+		}
+		.container{
+			width:300px;
+			height:200px;
+			background-color:#F5F5F5;
+			border:2px solid #E3E3E3;
+			border-radius:8px;
+			margin:0 auto;
+			position:static;
+		}
+		
+		.menu{
+			position:absolute;
+			background-color:white;
+			border:1px solid #D0D0D0;
+			border-radius:4px;
+		}
+		.item{
+		    width: 168px;
+		    height: 38px;
+		    line-height: 38px;
+	        padding-left: 6px;
+		}
+		.item:hover{
+			background-color:orange;
+		}
+		
+	</style>
+  </head>
+  
+  <body>
+   <div class="container"  id="container" oncontextmenu="myFunction()">
+   	
+   </div>
+   
+   <script type="text/javascript">
+   		document.oncontextmenu = function(){return false;}; //屏蔽原本菜单
+   		function myFunction(event){
+   			event = event||window.event; 
+   			var x = event.clientX;
+   			var y = event.clientY;
+   			
+   			var itemList = ["菜单一","菜单二","菜单三"];
+   			var menu = createMenu(itemList);
+   			
+   			//判断右边是否有足够空间放下
+   			
+   			var sx = document.body.clientWidth;
+   			var sy = document.body.clientHeight;
+   			if(sx-x<168){
+   				x = x -168;
+   			}
+   			if(sy-y<38*itemList.length){
+   				y = y -38*itemList.length;
+   			}
+   			menu.style = "top:"+y+"px;left:"+x+"px;";
+   			
+   			if(document.getElementById("container").hasChildNodes()){//如果已存在菜单，删除该菜单
+	   			document.getElementById("container").removeChild(document.getElementById("container").childNodes[0]);
+   			}
+   			document.getElementById("container").appendChild(menu);
+   		}
+   		
+   		//创建菜单
+   		function createMenu(itemList){
+   			var menu = document.createElement('div');
+   			menu.className = "menu";
+   			
+   			for(var i=0,len=itemList.length;i<len;i++){
+   				var item = document.createElement('div');
+   				item.className = "item";
+   				item.textContent = itemList[i];
+	   			menu.appendChild(item);
+   			}
+   			return menu;
+   		}   		
+   		
+   		
+   </script>
+  </body>
+</html>
