@@ -82,6 +82,7 @@
    		function createMenu(itemList){
    			var menu = document.createElement('div');
    			menu.className = "menu";
+   			menu.id="menu";
    			
    			for(var i=0,len=itemList.length;i<len;i++){
    				var item = document.createElement('div');
@@ -91,7 +92,10 @@
    			}
    			return menu;
    		}   		
-   		
+   		// 点击页面隐藏菜单
+		document.onclick = function (event) {
+			document.getElementById('menu').style.display = 'none';
+		}
    		
    </script>
   </body>
