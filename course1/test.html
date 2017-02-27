@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>自定义checkbox， radio样式</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<style type="text/css">
+		label{
+			font-size:20px;
+		}
+		/*伪类实现方法*/
+		 #type1 input[type="radio"]{
+			appearance:none;
+			-moz-appearance:none;
+			-webkit-appearance:none;
+		    width: 18px;
+		    height: 18px;
+		    vertical-align: bottom;
+		    background: url("http://p1.bqimg.com/567571/99322cf8c3283e42.png");
+		    background-position: -24px -10px;
+		    background-repeat: no-repeat;
+		}
+		#type1 input[type="radio"]:checked{
+			appearance:none;
+			-moz-appearance:none;
+			-webkit-appearance: none;
+		    background: url("http://p1.bqimg.com/567571/99322cf8c3283e42.png");
+		    width: 18px;
+		    height: 18px;
+		    vertical-align: bottom;
+		    background-position: -58px -10px;
+		    background-repeat: no-repeat;
+		}
+		
+		#type1 input[type="checkbox"]{
+			appearance:none;
+			-moz-appearance:none;
+			-webkit-appearance: none;
+			width:18px;
+			height:18px;
+		    vertical-align: bottom;
+			background-image:url("http://p1.bqimg.com/567571/99322cf8c3283e42.png");
+			background-repeat:no-repeat;
+			background-position:-24px -30px;
+		}
+		#type1 input[type="checkbox"]:checked{
+			appearance:none;
+			-moz-appearance:none;
+			-webkit-appearance: none;
+			width:18px;
+			height:18px;
+			vertical-align: bottom;
+			background-image:url("http://p1.bqimg.com/567571/99322cf8c3283e42.png");
+			background-repeat:no-repeat;
+			background-position:-58px -30px;
+		} 
+		
+		/*伪元素实现*/
+		#type2 input[type="radio"]:before{
+			content:" ";
+			width:18px;
+			height:18px;
+			position: absolute;
+			background: url("http://p1.bqimg.com/567571/99322cf8c3283e42.png");
+		    background-color:white;
+		    background-position: -24px -10px;
+		    background-repeat: no-repeat;
+		}
+		#type2 input[type="radio"]:checked:before{
+			content:" ";
+			width:18px;
+			height:18px;
+			position: absolute;
+			background: url("http://p1.bqimg.com/567571/99322cf8c3283e42.png");
+		    background-color:white;
+		    background-position: -58px -10px;
+		    background-repeat: no-repeat;
+		}
+		
+		
+		#type2 input[type="checkbox"]:before{
+			content:" ";
+			width:18px;
+			height:18px;
+			position: absolute;
+			background: url("http://p1.bqimg.com/567571/99322cf8c3283e42.png");
+		    background-color:white;
+		    background-position: -24px -30px;
+		    background-repeat: no-repeat;
+		}
+		#type2 input[type="checkbox"]:checked:before{
+			content:" ";
+			width:18px;
+			height:18px;
+			position: absolute;
+			background: url("http://p1.bqimg.com/567571/99322cf8c3283e42.png");
+		    background-color:white;
+		    background-position: -58px -30px;
+		    background-repeat: no-repeat;
+		}
+		
+		
+		
+	</style>
+
+
+  </head>
+  
+  	
+  <body>
+  	<div id="type1">
+	  	<label><input type="radio"  name="radio" />是</label>
+	  	<input type="radio"  id="radio1"  name="radio" /><label for="radio1" >否</label>
+	  	
+	  	<label><input type="checkbox"  name="checkbox" />哈哈</label>
+  		
+  	</div>
+  	<div id="type2">
+	  	<label><input type="radio"  name="radio1" />是</label>
+	  	<input type="radio"  id="radio2"  name="radio1" /><label for="radio2" >否</label>
+	  	
+	  	<label><input type="checkbox"  name="checkbox" />哈哈</label>
+  		
+  	</div>
+  </body>
+</html>
