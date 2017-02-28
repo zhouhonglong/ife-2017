@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>有趣的鼠标悬浮模糊效果</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<style type="text/css">
+		/*流光文字的实现，用文字裁剪背景图*/
+		@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) { 
+		    .masked{
+		        background-image: -webkit-linear-gradient(left, #147B96, #E6D205 25%, #147B96 50%, #E6D205 75%, #147B96);
+		        -webkit-text-fill-color: transparent;
+		        -webkit-background-clip: text;
+		        -webkit-background-size: 200% 100%;
+		        -webkit-animation: masked-animation 4s infinite linear;
+		    }
+		}
+		@-webkit-keyframes masked-animation {
+		    0%  { background-position: 0 0;}
+		    100% { background-position: -100% 0;}
+		}
+		/*图片模糊化*/
+		img{
+    		transition: filter,0.5s,ease-in;
+		}
+		.container{
+		    display: inline-block;
+		}
+		
+		.container:hover img{
+    		-webkit-filter: blur(6px);
+		}
+		
+		.masked{
+		    font-size: 30px;
+		    display: inline-block;
+		    position: absolute;
+		    top: 40px;
+		    left: 72px;
+		    padding: 10px 35px;
+		    border:none;
+		}
+		.masked:before{
+	        content: " ";
+		    display: block;
+		    position: absolute;
+		    width: 0;
+		    height: 100%;
+		    border-top: 4px solid white;
+		    border-bottom: 4px solid white;
+		    right: 50%;
+		    transition: filter,1s,ease-in;
+		}
+		.container:hover .masked:before{
+			width:50%;
+		}
+		.masked:after{
+	        content: " ";
+		    display: block;
+		    position: absolute;
+		    width: 0;
+		    height: 100%;
+		    border-top: 4px solid white;
+		    border-bottom: 4px solid white;
+		    left: 50%;
+		    top:10px;
+		    transition: filter,1s,ease-in;
+		}
+		.container:hover .masked:after{
+			width:50%;
+		}
+	</style>
+	
+  </head>
+  	<div class="container" >
+  		<img src="img/bear.jpg"  />
+	  	<div class="masked">
+		    <h4>哈哈哈哈哈哈哈哈</h4>
+		</div>
+  	
+  	</div>
+  	
+  <body>
+    
+  </body>
+</html>
