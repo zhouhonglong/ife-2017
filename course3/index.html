@@ -41,37 +41,49 @@
 		    position: absolute;
 		    top: 40px;
 		    left: 72px;
+		    width:250px;
+		    height:100px;
 		    padding: 10px 35px;
 		    border:none;
+		    text-align:center;
 		}
 		.masked:before{
 	        content: " ";
 		    display: block;
 		    position: absolute;
-		    width: 0;
-		    height: 100%;
 		    border-top: 4px solid white;
 		    border-bottom: 4px solid white;
-		    right: 50%;
 		    transition: filter,1s,ease-in;
+		    transform:rotateY(90deg);
+		    top: 0;
+		    left: 0;
+		    width:320px;
+		    height:120px;
 		}
 		.container:hover .masked:before{
-			width:50%;
+			 transform:rotateY(0deg);
 		}
 		.masked:after{
-	        content: " ";
+	       content: " ";
 		    display: block;
 		    position: absolute;
-		    width: 0;
-		    height: 100%;
-		    border-top: 4px solid white;
-		    border-bottom: 4px solid white;
-		    left: 50%;
-		    top:10px;
+		    border-left: 4px solid white;
+		    border-right: 4px solid white;
 		    transition: filter,1s,ease-in;
+		    transform: rotateX(90deg);
+		    top: 0;
+		    left: 0;
+	        width: 316px;
+    		height: 128px;
 		}
 		.container:hover .masked:after{
-			width:50%;
+			transform:rotateX(0deg);
+		}
+		.masked h4{
+			display:none;
+		}
+		.container:hover .masked h4{
+			display:block;
 		}
 	</style>
 	
